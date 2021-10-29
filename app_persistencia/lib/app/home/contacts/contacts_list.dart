@@ -1,8 +1,12 @@
+import 'package:app_persistencia/app/home/contacts/components/contact_widget.dart';
 import 'package:app_persistencia/app/home/contacts/contact_form.dart';
+import 'package:app_persistencia/app/model/contact_model.dart';
 import 'package:flutter/material.dart';
 
 class ContactsList extends StatelessWidget {
-  const ContactsList({Key? key}) : super(key: key);
+  final List<ContactModel> contacts = [];
+
+  ContactsList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -10,16 +14,14 @@ class ContactsList extends StatelessWidget {
       appBar: AppBar(
         title: Text('Contacts'),
       ),
-      body: ListView(
-        children: [
-          Card(
-            child: ListTile(
-              title: Text('Teste'),
-              subtitle: Text('1000'),
-            ),
-          )
-        ],
-      ),
+      body: ListView.builder(
+          itemCount: contacts.length,
+          itemBuilder: (_, i) {
+            final ContactModel contact = contacts[i];
+            return ContactWidget(
+              contact: contact,
+            );
+          }),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator.of(context)

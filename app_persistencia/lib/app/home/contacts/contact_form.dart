@@ -41,7 +41,7 @@ class _ContactFormState extends State<ContactForm> {
                   final int? accountNumber =
                       int.tryParse(_numberCountController.text);
                   final ContactModel newContact =
-                      ContactModel(name, accountNumber!);
+                      ContactModel(0, name, accountNumber!);
                   Navigator.pop(context, newContact);
                 },
                 child: Text('Create'),

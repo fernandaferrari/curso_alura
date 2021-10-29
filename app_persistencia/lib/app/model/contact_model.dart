@@ -1,6 +1,16 @@
 class ContactModel {
-  final String name;
-  final int numberCounter;
+  final int? id;
+  final String? name;
+  final int? account_number;
 
-  ContactModel(this.name, this.numberCounter);
+  ContactModel(
+    this.id,
+    this.name,
+    this.account_number,
+  );
+
+  @override
+  String toString() {
+    return 'Contact{id: $id, name: $name, accountNumber: $account_number}';
+  }
 }
